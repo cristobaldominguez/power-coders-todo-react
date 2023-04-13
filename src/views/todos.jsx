@@ -3,7 +3,7 @@ import useServer from "../hooks/useServer.js"
 import Todo from "../components/Todo.jsx"
 
 function Todos() {
-  const { get, post } = useServer()
+  const { get, post, delete: destroy } = useServer()
   const [todos, setTodos] = useState([])
 
   const getTodos = async() => {
@@ -20,6 +20,15 @@ function Todos() {
     setTodos([ ...todos, data ])
   }
 
+  const deleteTodoHandler = async (id) => {
+    const { data } = await destroy({ url: `/todos/${id}` })
+    console.log(data)
+    if (data.deleted) {
+      const newList = todos.filter(todo => todo.id !== id)
+      setTodos(newList)
+    }
+  }
+
   useEffect(() => {
     getTodos()
   }, [])
@@ -27,7 +36,7 @@ function Todos() {
   return <>
     <h1>ToDos</h1>
     { todos && <ul>
-      {todos.map(todo => <Todo key={todo.id} todo={todo} />)}
+      {todos.map(todo => <Todo key={todo.id} todo={todo} deleteTodo={deleteTodoHandler} />)}
     </ul> }
 
     <form onSubmit={createTodoHandler}>

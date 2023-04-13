@@ -2,6 +2,17 @@
   display: flex;
 }
 
+.iconLink {
+  
+}
+
+.icon {
+  height: 1.2em;
+  position: relative;
+  top: 3px;
+  margin-right: .5em;
+}
+
 .content {
   flex-grow: 1;
 }

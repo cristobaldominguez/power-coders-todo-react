@@ -8,7 +8,7 @@ import AuthProvider from './providers/AuthProvider.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-      <BrowserRouter>
+      <BrowserRouter basename='/power-coders-todo-react'>
         <App />
       </BrowserRouter>
     </AuthProvider>

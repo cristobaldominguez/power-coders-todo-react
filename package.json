@@ -1,7 +1,7 @@
 {
   "name": "custom-hooks-project",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "homepage": "https://cristobaldominguez.github.io/power-coders-todo-react/",
   "type": "module",
   "scripts": {
